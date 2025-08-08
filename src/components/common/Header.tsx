@@ -1,54 +1,40 @@
-import {Bars2Icon} from "@heroicons/react/16/solid";
-import {useState} from "react";
-import {XMarkIcon} from "@heroicons/react/24/outline";
-import {allRoutes} from "../../utils/routing/routes.tsx";
-import {Link} from "react-router";
+import { ChevronRightIcon, Bars2Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
+import { allRoutes } from "../../utils/routing/routes";
+
+const transition = "transition-all duration-500 ease-in-out"
 
 export function Header () {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
 
   return (
-    <header className="w-full bg-primary text-secondary border-b border-secondary/20">
-      <div className="h-18 flex items-center justify-between px-6">
-        <div className="h-full grid place-items-center">
-          <h1 className="text-xl font-extrabold uppercase">Hugo Castell</h1>
-        </div>
-        <nav>
-          <button
-            className="grid md:hidden place-items-center cursor-pointer"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ?
-              <XMarkIcon className="h-6 w-6" /> :
-              <Bars2Icon className="h-6 w-6" />
-            }
-          </button>
-          <ul className="hidden md:flex space-x-4">
-            {allRoutes.map((route) => (
-              <li
-                key={route.title}
-              >
-                <Link
-                  to={route.path}
-                  className="hover:underline"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >{route.title}</Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+    <header className={`w-full min-h-18 ${transition} ${isMobileMenuOpened ? 'bg-background-neutral-primary' : 'backdrop-blur-3xl'} px-6`}>
+      <div className="w-full h-18 flex justify-between items-center">
+        <button className={`${transition} ${isMobileMenuOpened ? 'text-transparent' : 'cursor-pointer text-content-neutral-secondary hover:text-content-neutral-primary' } uppercase tracking-spaced font-bold`}>
+          Hugo Castell
+        </button>
+        <button 
+          className="cursor-pointer"
+          onClick={() => setIsMobileMenuOpened(!isMobileMenuOpened)}
+        >
+          {isMobileMenuOpened ? <XMarkIcon className="size-icon-md" /> :
+                                <Bars2Icon className="size-icon-md" /> }
+        </button>
       </div>
-
-      {/* Mobile menu expands naturally */}
-      {isMobileMenuOpen && (
-        <ul className="flex flex-col md:hidden px-6 pb-4 space-y-2">
-          {allRoutes.map((route) => (
-            <li key={route.title}>
-              <Link to={route.path} className="hover:underline">{route.title}</Link>
-            </li>
-          ))}
-        </ul>
-      )}
+      <nav className={`w-full text-2xl tracking-normal font-bold flex flex-col ${transition} ${isMobileMenuOpened ? 'h-screen' : 'h-0'}`}>
+        {isMobileMenuOpened && allRoutes.map((route, index) => {
+          return (
+            <button 
+              key={route.title}
+              className={`flex justify-between items-center text-content-neutral-secondary hover:text-content-neutral-primary group cursor-pointer py-1 animate-fade-in-from-top`}
+              style={{ animationDelay: `${25 * index}ms` }}
+            >
+              {route.title}
+              <ChevronRightIcon className={`size-icon-2xl ${transition} stroke-transparent group-hover:stroke-content-neutral-primary`} />
+            </button>
+          )
+        })}
+      </nav>
     </header>
   );
 }

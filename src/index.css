@@ -2,8 +2,94 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #141415;
-  --color-secondary: #F9F9F9;
-  
+   /* Primitive colors */
+  --color-beige-100: rgb(249, 244, 235);
+  --color-beige-200: rgb(244, 238, 231);
+  --color-beige-300: rgb(204, 199, 190);
+
+  --color-dark-100: rgb(100, 100, 100);
+  --color-dark-200: rgb(50, 50, 50);
+  --color-dark-300: rgb(0, 0, 0);
+
+  --color-ice-100: rgb(202, 227, 234);
+  --color-ice-200: rgb(177, 202, 209);
+  --color-ice-300: rgb(137, 162, 169);
+
+  --color-moss-100: rgb(212, 242, 233);
+  --color-moss-200: rgb(198, 227, 218);
+  --color-moss-300: rgb(158, 187, 178);
+
+  --color-parchment-100: rgb(246, 237, 209);
+  --color-parchment-200: rgb(236, 228, 197);
+  --color-parchment-300: rgb(196, 188, 157);
+
+  --color-pastel-100: rgb(250, 223, 212);
+  --color-pastel-200: rgb(230, 203, 192);
+  --color-pastel-300: rgb(190, 163, 152);
+
+  /* Semantic - content */
+  --color-content-neutral-primary: var(--color-dark-300);
+  --color-content-neutral-secondary: var(--color-dark-200);
+  --color-content-neutral-tertiary: var(--color-dark-100);
+  --color-content-neutral-disabled: var(--color-dark-200);
+
+  --color-content-inverse-primary: var(--color-beige-100);
+  --color-content-inverse-secondary: var(--color-beige-200);
+  --color-content-inverse-tertiary: var(--color-parchment-100);
+
+  --color-content-brand-primary: var(--color-ice-300);
+  --color-content-brand-secondary: var(--color-moss-300);
+  --color-content-brand-tertiary: var(--color-pastel-300);
+
+  /* Semantic - background */
+  --color-background-neutral-primary: var(--color-beige-100);
+  --color-background-neutral-secondary: var(--color-beige-200);
+  --color-background-neutral-tertiary: var(--color-parchment-100);
+  --color-background-neutral-disabled: var(--color-beige-300);
+
+  --color-background-inverse-primary: var(--color-dark-300);
+  --color-background-inverse-secondary: var(--color-dark-200);
+  --color-background-inverse-tertiary: var(--color-dark-100);
+
+  --color-background-brand-primary: var(--color-ice-100);
+  --color-background-brand-secondary: var(--color-moss-100);
+  --color-background-brand-tertiary: var(--color-pastel-100); 
+
+  /* Content - Neutral */
+  --color-content-neutral-primary: var(--color-dark-300);     /* rgb(0, 0, 0) */
+  --color-content-neutral-secondary: var(--color-dark-200);   /* rgb(50, 50, 50) */
+  --color-content-neutral-tertiary: var(--color-dark-100);    /* rgb(100, 100, 100) */
+  --color-content-neutral-disabled: var(--color-dark-200);    /* rgb(50, 50, 50) */
+
+  /* Content - Inverse */
+  --color-content-inverse-primary: var(--color-beige-100);    /* rgb(249, 244, 235) */
+  --color-content-inverse-secondary: var(--color-beige-200);  /* rgb(244, 238, 231) */
+  --color-content-inverse-tertiary: var(--color-parchment-100); /* rgb(246, 237, 209) */
+
+  /* Content - Brand */
+  --color-content-brand-primary: var(--color-ice-300);        /* rgb(137, 162, 169) */
+  --color-content-brand-secondary: var(--color-moss-300);     /* rgb(158, 187, 178) */
+  --color-content-brand-tertiary: var(--color-pastel-300);    /* rgb(190, 163, 152) */
+
   --font-inter: "Inter", sans-serif;
+  --tracking-normal: -0.02em;
+  --tracking-spaced: 0.15em;
+
+  --text-xs: 7.60px;
+  --text-sm: 10.14px;
+  --text-md: 13.51px;
+  --text-lg: 18.01px;
+  --text-xl: 24.01px;
+  --text-2xl: 32.00px;
+
+  --spacing-icon-md: 24px;
+  --spacing-icon-2xl: 32px;
+
+  --radius-classic: 3px;
+
+  --animate-fade-in-from-top : fade-in-from-top 0.3s both;
+  @keyframes fade-in-from-top {
+    0% { transform: translateY(-10px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
 }
