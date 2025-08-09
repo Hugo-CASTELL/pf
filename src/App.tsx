@@ -8,10 +8,10 @@ function App() {
     <div className={"font-inter text-md tracking-normal bg-background-neutral-primary"}>
       <div className={"h-screen w-screen flex flex-col"}>
         <span className={"min-h-18"} />
-        <div className={"fixed h-18 w-full"}>
+        <div className={"fixed h-18 w-full z-50"}>
           <Header />
         </div>
-        <div className={"flex-1"}>
+        <div className={"flex-1 z-0"}>
           <Routes>
             {allRoutes.map((route) => (
               <Route

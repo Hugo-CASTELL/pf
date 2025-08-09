@@ -82,10 +82,12 @@
   --text-xl: 24.01px;
   --text-2xl: 32.00px;
 
+  --spacing-icon-sm: 16px;
   --spacing-icon-md: 24px;
   --spacing-icon-2xl: 32px;
 
   --radius-classic: 3px;
+  --radius-extra: 10px;
 
   --animate-fade-in-from-top : fade-in-from-top 0.3s both;
   @keyframes fade-in-from-top {

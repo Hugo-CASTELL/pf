@@ -8,7 +8,7 @@ export function Header () {
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
 
   return (
-    <header className={`w-full min-h-18 ${transition} ${isMobileMenuOpened ? 'bg-background-neutral-primary' : 'backdrop-blur-3xl'} px-6`}>
+    <header className={`w-full min-h-18 ${transition} ${isMobileMenuOpened ? 'bg-background-neutral-primary' : 'bg-background-neutral-primary/50 backdrop-blur-3xl'} px-6`}>
       <div className="w-full h-18 flex justify-between items-center">
         <button className={`${transition} ${isMobileMenuOpened ? 'text-transparent' : 'cursor-pointer text-content-neutral-secondary hover:text-content-neutral-primary' } uppercase tracking-spaced font-bold`}>
           Hugo Castell
