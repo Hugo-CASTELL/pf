@@ -1,12 +1,13 @@
 import {Route, Routes} from "react-router";
 import {Header} from "./components/common/Header.tsx";
 import {allRoutes} from "./utils/routing/routes.tsx";
+import { Footer } from "./components/common/Footer.tsx";
 
 function App() {
   
   return (
     <div className={"font-inter text-md tracking-normal bg-background-neutral-primary"}>
-      <div className={"h-screen w-screen flex flex-col"}>
+      <div className={"flex flex-col"}>
         <span className={"min-h-18"} />
         <div className={"fixed h-18 w-full z-50"}>
           <Header />
@@ -21,6 +22,9 @@ function App() {
               />
             ))}
           </Routes>
+        </div>
+        <div className="w-full">
+          <Footer />
         </div>
       </div>
     </div>

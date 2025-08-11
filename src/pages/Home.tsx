@@ -6,7 +6,7 @@ import { PickUpCard } from "../components/home/PickUpCard";
 
 export function Home() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-[18px]">
 
       {/* Hero */}
       <div className="w-full bg-background-neutral-secondary flex flex-col gap-10 justify-center items-center">
@@ -33,14 +33,12 @@ export function Home() {
         </div>
 
         {/* Card section */}
-        <div className="flex items-end">
+        <div className="flex items-end max-w-full">
           <PickUpCard classNameAddition="hover:border-ice-300 bg-background-brand-primary h-64 z-10 translate-x-20" label="See my last project" />
           <PickUpCard classNameAddition="hover:border-moss-300 bg-background-brand-secondary h-48 z-20 " label="It's one fun hobby" />
           <PickUpCard classNameAddition="hover:border-pastel-300 bg-background-brand-tertiary h-32 z-30 -translate-x-20" label="And I love to learn" />
         </div>
-
       </div>
-
     </div>
   )
 }
