@@ -26,6 +26,7 @@ export function Header () {
           return (
             <Link 
               to={route.path}
+              onClick={() => setIsMobileMenuOpened(!isMobileMenuOpened)}
               key={route.title}
               className={`flex justify-between items-center text-content-neutral-secondary hover:text-content-neutral-primary group cursor-pointer py-1 animate-fade-in-from-top`}
               style={{ animationDelay: `${25 * index}ms` }}

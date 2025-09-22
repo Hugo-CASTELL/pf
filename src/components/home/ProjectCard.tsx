@@ -19,9 +19,9 @@ function bgSelector(bgType: 1 | 2 | 3 | 4) {
 function iconSelector(bgType: 1 | 2 | 3 | 4) {
   switch (bgType) {
     case 1: return "bg-content-brand-primary";
-    case 2: return "bg-content-brand-secondary";
-    case 3: return "bg-content-brand-tertiary";
-    case 4: return "bg-content-neutral-tertiary";
+    case 2: return "bg-content-brand-primary";
+    case 3: return "bg-content-brand-primary";
+    case 4: return "bg-content-brand-primary";
   }
 }
 

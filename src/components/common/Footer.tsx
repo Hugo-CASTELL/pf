@@ -10,7 +10,7 @@ const anchorClass = "px-1.5 cursor-pointer group"
 
 export function Footer(){
   return (
-    <div className="w-full h-[65px] bg-background-inverse-primary text-center text-content-inverse-tertiary flex flex-col justify-center gap-1">
+    <div className="w-full p-2 bg-background-inverse-primary text-center text-content-inverse-tertiary flex flex-col justify-center gap-1">
       <div className="flex justify-center items-center">
         {
           [
@@ -32,9 +32,7 @@ export function Footer(){
 
         }
       </div>
-      <p className="text-md font-semibold">
-        Designed, built and shipped by Hugo CASTELL. More on <a href={links["GITHUB"]} target="_blank" className="text-content-inverse-secondary hover:text-content-inverse-primary cursor-pointer">Github</a>.
-      </p>
+      <a href={links["GITHUB"]} target="_blank" className="text-md font-semibold hover:text-content-inverse-primary cursor-pointer">Designed, built and shipped by Hugo CASTELL.</a>
     </div>
   )
 }

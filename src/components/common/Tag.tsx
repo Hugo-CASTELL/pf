@@ -1,4 +1,4 @@
-interface TagProps {
+export interface TagProps {
   imgSrc?: string,
   label: string,
   bgType: 1 | 2 | 3 | 4,
