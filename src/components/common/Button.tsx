@@ -5,7 +5,6 @@ export interface ButtonProps {
 }
 
 export function Button(props: ButtonProps) {
-  console.log(props.label, props.isSpecial)
   if(props.isSpecial && props.isSpecial == true) {
     return (
       <div className="relative">
