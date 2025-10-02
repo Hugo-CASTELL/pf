@@ -1,38 +1,29 @@
-import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
-import { GithubIcon, LinkedInIcon } from "../svg/Icons";
-import { links } from "../../utils/routing/links";
+import { IconLoader } from "../svg/Icons";
 import { ContactRoute } from "../../utils/routing/routes";
 import { Link } from "react-router";
+import { github, linkedin, mail, phone, type SocialProps } from "../../utils/common/socials";
 
 const heroIconClass = "size-icon-md text-content-inverse-tertiary group-hover:text-content-inverse-secondary"
 const iconClass = "size-icon-md fill-content-inverse-tertiary group-hover:fill-content-inverse-secondary"
 const anchorClass = "px-1.5 cursor-pointer group"
 
+function socialsToAnchors(socials: SocialProps[]){
+  return socials.map((social) =>
+          <a key={social.alt} className={anchorClass} href={social.url} target="_blank">
+            <IconLoader iconAlt={social.alt} iconClassName={social.customIcon ? iconClass : heroIconClass} />
+          </a>
+        )
+}
+
 export function Footer(){
   return (
     <div className="w-full p-2 bg-background-inverse-primary text-center text-content-inverse-tertiary flex flex-col justify-center gap-1">
       <div className="flex justify-center items-center">
-        {
-          [
-            [links["GITHUB"], <GithubIcon iconClassName={iconClass} />],
-            [links["LINKEDIN"], <LinkedInIcon iconClassName={iconClass} />],
-            [ContactRoute.path, <p className="text-md font-semibold">{'— Contact me —'}</p>],
-            [links["MAIL"], <EnvelopeIcon className={heroIconClass} />],
-            [links["PHONE"], <PhoneIcon  className={heroIconClass} />],
-          ].map((a) => {
-              let url: string = a[0].toString()
-              let content = a[1]
-              if(url.startsWith("http")) {
-                return <a key={url} className={anchorClass} href={url} target="_blank">{content}</a>
-              } else {
-                return <Link key={url} className={anchorClass} to={url}>{content}</Link>
-              }
-            }
-               )
-
-        }
+        {socialsToAnchors([github, linkedin])}
+        <Link to={ContactRoute.path} className={anchorClass}><p className="text-md font-semibold">{'— Contact me —'}</p></Link>
+        {socialsToAnchors([mail, phone])}
       </div>
-      <a href={links["GITHUB"]} target="_blank" className="text-md font-semibold hover:text-content-inverse-primary cursor-pointer">Designed, built and shipped by Hugo CASTELL.</a>
+      <a href={github.url} target="_blank" className="text-md font-semibold hover:text-content-inverse-primary cursor-pointer">Designed, built and shipped by Hugo CASTELL.</a>
     </div>
   )
 }

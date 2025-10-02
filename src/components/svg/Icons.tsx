@@ -1,8 +1,11 @@
+import { DocumentTextIcon, EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
+import { github, linkedin, mail, phone, resume } from "../../utils/common/socials";
+
 interface IconProps {
   iconClassName: string;
 }
 
-export function GithubIcon(props: IconProps) {
+function GithubIcon(props: IconProps) {
   return (
     <svg className={props.iconClassName}viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path fillRule="evenodd" clipRule="evenodd" d="M11.5634 13.7314C13.4596 13.5075 15.4764 12.8181 15.4764 9.54282C15.4764 8.6119 15.1486 7.85326 14.6147 7.26707C14.7008 7.04318 14.9764 6.1984 14.5107 5.02638C14.5107 5.02638 13.8212 4.80218 12.2012 5.88807C11.5117 5.69866 10.7533 5.57778 10.0466 5.57778C9.32233 5.57778 8.56368 5.69866 7.8914 5.88807C6.25376 4.80218 5.5643 5.02638 5.5643 5.02638C5.099 6.1984 5.37489 7.04318 5.46098 7.26707C4.9265 7.85322 4.59898 8.6119 4.59898 9.54282C4.59898 12.8181 6.61579 13.5075 8.51202 13.7314C8.27088 13.9387 8.04672 14.3348 7.96058 14.8865C7.47775 15.0932 6.21933 15.4899 5.46098 14.1798C5.46098 14.1798 5.01263 13.3698 4.16812 13.3181C4.16812 13.3181 3.32334 13.3009 4.0992 13.8348C4.0992 13.8348 4.66786 14.0937 5.04734 15.076C5.04734 15.076 5.5643 16.7139 7.94306 16.1966V17.6617C7.94306 17.8862 7.77086 18.1445 7.34 18.0756C3.96118 16.955 1.53073 13.7486 1.53073 9.99091C1.53073 5.28474 5.34014 1.47536 10.0466 1.47536C14.7352 1.47536 18.5622 5.28478 18.5449 9.99091C18.5449 13.7486 16.1142 16.9378 12.7356 18.0756C12.3045 18.1618 12.1323 17.9034 12.1323 17.6617V15.3004C12.1323 14.507 11.8734 13.9903 11.5634 13.7314ZM19.7689 10.0084C19.7689 4.62968 15.4075 0.268555 10.0466 0.268555C4.66786 0.268555 0.306736 4.62968 0.306736 10.0084C0.306736 15.3693 4.66786 19.7307 10.0466 19.7307C15.4075 19.7307 19.7689 15.3693 19.7689 10.0084Z" />
@@ -10,7 +13,7 @@ export function GithubIcon(props: IconProps) {
   )
 }
 
-export function LinkedInIcon(props: IconProps) {
+function LinkedInIcon(props: IconProps) {
   return (
   <svg className={props.iconClassName} viewBox="0 0 382 382" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M347.445,0H34.555C15.471,0,0,15.471,0,34.555v312.889C0,366.529,15.471,382,34.555,382h312.889
@@ -24,4 +27,25 @@ export function LinkedInIcon(props: IconProps) {
       L341.91,330.654L341.91,330.654z"/>
   </svg>
   )
+}
+
+export interface IconLoadProps {
+  iconAlt: string,
+  iconClassName: string,
+}
+
+export function IconLoader(props: IconLoadProps) {
+  switch(props.iconAlt) {
+    case github.alt:
+      return <GithubIcon iconClassName={props.iconClassName} />
+    case linkedin.alt:
+      return <LinkedInIcon iconClassName={props.iconClassName} />
+    case resume.alt:
+      return <DocumentTextIcon className={props.iconClassName} />
+    case mail.alt:
+      return <EnvelopeIcon className={props.iconClassName} />
+    case phone.alt:
+      return <PhoneIcon className={props.iconClassName} />
+  }
+  return (<></>)
 }

@@ -1,107 +1,55 @@
-import { Button } from "../components/common/Button";
-import { Tag } from "../components/common/Tag";
-import capgemini_logo from "../assets/img/capgemini_logo.png"
-import enseeiht_logo from "../assets/img/ENSEEIHT_logo.png"
 import { PickUpCard } from "../components/home/PickUpCard";
 import { ProjectCard } from "../components/home/ProjectCard";
 import { BaseTemplate } from "../components/common/BaseTemplate";
+import { useNavigate } from "react-router";
+import { CareerDevelopmentRoute, ContactRoute, ProjectRoute, ProjectsRoute } from "../utils/routing/routes";
+import { selectedProjects } from "../utils/common/projects";
+import { bgBrandRoundRobin, borderByBrandBackground } from "../utils/common/brandUtils";
+import { capgemini, enseeiht } from "../utils/common/tags";
 
 function HomeSide() {
   return (
     <div className="flex items-end justify-center">
-      <PickUpCard classNameAddition="hover:border-ice-300 bg-background-brand-primary h-64 z-10 translate-x-20" label="See my last project" />
-      <PickUpCard classNameAddition="hover:border-moss-300 bg-background-brand-secondary h-48 z-20 " label="It's one fun hobby" />
-      <PickUpCard classNameAddition="hover:border-pastel-300 bg-background-brand-tertiary h-32 z-30 -translate-x-20" label="And I love to learn" />
+      <PickUpCard classNameAddition={`hover:${borderByBrandBackground(bgBrandRoundRobin(1) as string)} ${bgBrandRoundRobin(1)} h-64 z-10 translate-x-20`} label="See my last project" />
+      <PickUpCard classNameAddition={`hover:${borderByBrandBackground(bgBrandRoundRobin(2) as string)} ${bgBrandRoundRobin(2)} h-48 z-20 `} label="It's one fun hobby" />
+      <PickUpCard classNameAddition={`hover:${borderByBrandBackground(bgBrandRoundRobin(4) as string)} ${bgBrandRoundRobin(4)} h-32 z-30 -translate-x-20`} label="And I love to learn" />
     </div>
   )
 }
 
 function HomeBelow() {
+  const navigate = useNavigate()
+
   return (
     <div className="w-full bg-background-neutral-secondary grid place-items-center py-10">
       <div className="w-fit flex flex-col gap-[10px]">
         <h1 className="w-full text-left text-lg font-semibold">
           Some selected projects
         </h1>
-        <ProjectCard bgType={1} label="This portfolio" imgSrc={"https://picsum.photos/536/354"} />
-        <ProjectCard bgType={2} label="Parcoursup-like" imgSrc={"https://picsum.photos/536/355"} />
-        <ProjectCard bgType={4} label="Microprocessor from logic" imgSrc={"https://picsum.photos/536/356"} />
-        <ProjectCard bgType={3} label="Blind test online game" imgSrc={"https://picsum.photos/536/357"} />
+        {selectedProjects.slice(0,4).map((project, index) =>
+          <ProjectCard key={project.title} bgType={(index+1)%5 as 1 | 2 | 3 | 4} action={() => {navigate(ProjectRoute.path.replace(":slug", project.slug))}} label={project.title} imgSrc={"https://picsum.photos/536/354"} />
+        )}
       </div>
     </div>
   )
 }
 
 export function Home() {
+  const navigate = useNavigate()
+
   return (
     <BaseTemplate
       title={"Developer,\nskill collector,\nfocused on what matters."}
       tagsProps={[
-        {label:"Capgemini Engineering", imgSrc:capgemini_logo, bgType:4},
-        {label:"ENSEEIHT", imgSrc:enseeiht_logo, bgType:3}
+        {knownTag:capgemini, bgType:3, action: () => {navigate(CareerDevelopmentRoute.path)}},
+        {knownTag:enseeiht, bgType:4, action: () => {navigate(CareerDevelopmentRoute.path)}}
       ]}
       buttonsProps={[
-        {label:"Discover my work", action:() => {}},
-        {label:"Get in touch", action:() => {}, isSpecial: true},
+        {label:"Discover my work", action:() => {navigate(ProjectsRoute.path)}},
+        {label:"Get in touch", action:() => {navigate(ContactRoute.path)}, isSpecial: true},
       ]}
       sideSection={<HomeSide />}
       belowSection={<HomeBelow />}
     />
-  )
-}
-
-export function HomeOld() {
-  return (
-    <div className="flex flex-col gap-[18px]">
-
-      {/* Hero */}
-      <div className="w-full bg-background-neutral-secondary flex flex-col gap-10 justify-center items-center pt-10">
-
-        {/* Title section */}
-        <div className="flex flex-col gap-[10px]">
-          <h1 className="text-2xl font-semibold">
-            Developer, <br />
-            skill collector, <br />
-            focused on what matters.
-          </h1>
-          <div className="flex gap-4">
-            <Tag label="Capgemini Engineering" imgSrc={capgemini_logo} bgType={4} />
-            <Tag label="ENSEEIHT" imgSrc={enseeiht_logo} bgType={3} />
-          </div>
-          <div className="flex gap-6 py-[15px]">
-            <Button label="Discover my work" action={() => {}} />
-            <div className="relative">
-              <Button label="Get in touch" action={() => {}} />
-              <div className="absolute top-0 left-0 -translate-1/2 size-[30px] rounded-full bg-background-neutral-secondary" />
-              <div className="absolute bottom-0 right-0 translate-1/2 size-[30px] rounded-full bg-background-neutral-secondary" />
-            </div>
-          </div>
-        </div>
-
-        {/* Card section */}
-        <div className="overflow-hidden max-w-full">
-          <div className="flex items-end justify-center">
-            <PickUpCard classNameAddition="hover:border-ice-300 bg-background-brand-primary h-64 z-10 translate-x-20" label="See my last project" />
-            <PickUpCard classNameAddition="hover:border-moss-300 bg-background-brand-secondary h-48 z-20 " label="It's one fun hobby" />
-            <PickUpCard classNameAddition="hover:border-pastel-300 bg-background-brand-tertiary h-32 z-30 -translate-x-20" label="And I love to learn" />
-          </div>
-        </div>
-      </div>
-
-      {/* Selected projects */}
-      <div className="w-full bg-background-neutral-secondary grid place-items-center py-10">
-        <div className="w-fit flex flex-col gap-[10px]">
-          <h1 className="w-full text-left text-lg font-semibold">
-            Some selected projects
-          </h1>
-          <ProjectCard bgType={1} label="This portfolio" imgSrc={"https://picsum.photos/536/354"} />
-          <ProjectCard bgType={2} label="Parcoursup-like" imgSrc={"https://picsum.photos/536/355"} />
-          <ProjectCard bgType={4} label="Microprocessor from logic" imgSrc={"https://picsum.photos/536/356"} />
-          <ProjectCard bgType={3} label="Blind test online game" imgSrc={"https://picsum.photos/536/357"} />
-        </div>
-      </div>
-
-
-    </div>
   )
 }

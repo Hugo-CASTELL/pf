@@ -1,5 +1,4 @@
-import { Tag, type TagProps } from "../common/Tag"
-import { PickUpCard } from "../home/PickUpCard"
+import { type TagProps } from "../common/Tag"
 import { BaseTemplate } from "../common/BaseTemplate"
 
 interface ProjectTemplateProps {
