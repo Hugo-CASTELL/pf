@@ -7,14 +7,14 @@ export function bgBrandRoundRobin(index: number) {
 }
 
 export function coreBgBrandRoundRobin(context: string, index: number) {
-  if(index <= 0) return ""
+  if(index < 0) return ""
 
   let color = "";
-  switch (index % 5) {
-    case 1: color = "-brand-primary"; break;
-    case 2: color = "-brand-secondary"; break;
-    case 3: color = (context.includes("content") ? "-parchment-300" : "-neutral-tertiary"); break;
-    case 4: color = "-brand-tertiary"; break;
+  switch (index % 4) {
+    case 0: color = "-brand-primary"; break;
+    case 1: color = "-brand-secondary"; break;
+    case 2: color = (context.includes("content") ? "-parchment-300" : "-neutral-tertiary"); break;
+    case 3: color = "-brand-tertiary"; break;
     default: return ""
   }
   return `bg-${context}${color}`

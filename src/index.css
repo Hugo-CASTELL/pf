@@ -10,6 +10,14 @@
 @source inline("ease-in-out");
 @import "tailwindcss";
 
+.text-stroke-white {
+  text-shadow:
+     1px  1.5px 0 rgb(177, 202, 209),
+    -1px  1.5px 0 rgb(177, 202, 209),
+     1px -1.5px 0 rgb(177, 202, 209),
+    -1px -1.5px 0 rgb(177, 202, 209);
+}
+
 @theme {
    /* Primitive colors */
   --color-beige-100: rgb(249, 244, 235);

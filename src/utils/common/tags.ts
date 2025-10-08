@@ -18,5 +18,14 @@ export const nginx: KnownTag = { label:"Nginx", logoSrc:capgemini_logo }
 
 export const known_tags = [
   capgemini,
-  enseeiht
+  enseeiht,
+  figma,
+  react,
+  nginx
+]
+
+export const projects_tags = [
+  figma,
+  react,
+  nginx
 ]

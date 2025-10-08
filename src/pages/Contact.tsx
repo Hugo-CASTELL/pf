@@ -12,7 +12,7 @@ export function ContactSide(){
           <a 
             href={social.url}
             target="_blank"
-            className={`relative grid place-items-center aspect-square p-2 rounded-extra outline-3 outline-background-neutral-secondary ${transitionClassic} hover:${outlineByBrandBackground(bgBrandRoundRobin(index+1) as string)} ${bgBrandRoundRobin(index+1)}`}>
+            className={`relative grid place-items-center aspect-square p-2 rounded-extra outline-3 outline-background-neutral-secondary ${transitionClassic} hover:${outlineByBrandBackground(bgBrandRoundRobin(index) as string)} ${bgBrandRoundRobin(index)}`}>
             <CursorArrowRaysIcon className="absolute top-2 right-2 size-icon-sm" />
             <div className="flex flex-col justify-center gap-2">
               <IconLoader iconAlt={social.alt} iconClassName={`h-16 w-auto ${social.customIcon ? "fill-content-neutral-primary" : "text-content-neutral-primary"}`} />
