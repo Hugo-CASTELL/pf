@@ -31,11 +31,7 @@ function HobbiesSide({ hobby, setHobby }: SideProps) {
       <div className="h-[50vh] flex-1 grid grid-flow-col place-items-center grid-cols-3 grid-rows-3 gap-4">
         {new Array(9).fill(0).map((_, index) => {
             const hobbyCard = hobby?.activities[index]
-            if(hobbyCard) {
-              return hobbyCard
-            } else {
-              return <div className={`w-full h-full overflow-hidden rounded-extra ${bgBrandRoundRobin(index)}`}>{index+1}</div>
-            }
+            return <div className={`w-full h-full overflow-hidden rounded-extra ${bgBrandRoundRobin(index)}`}>{hobbyCard ?? index+1}</div>
           }
 
         )}

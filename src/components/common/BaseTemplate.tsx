@@ -18,7 +18,7 @@ export function BaseTemplate(props: BaseTemplateProps) {
     <div className={`flex flex-col ${props.belowSection ? "gap-[18px]" : "flex-1"}`}>
 
       {/* Hero */}
-      <div className={`w-full ${props.belowSection ? "min-h-[600px]" : "h-full"} bg-background-neutral-secondary flex flex-col gap-10 justify-between items-center pt-10`}>
+      <div className={`w-full ${props.sideSection ? props.belowSection ? "min-h-[600px]" : "h-full" : "pb-10"} bg-background-neutral-secondary flex flex-col gap-10 justify-between items-center pt-10`}>
 
         {/* Title section */}
         <div className="flex flex-col gap-[10px] min-w-[360px]">

@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 import { programmingCards } from "../../components/hobbies/ProgrammingCards";
+import { sportsCards } from "../../components/hobbies/SportsCards";
+import { videogamesCards } from "../../components/hobbies/VideogamesCards";
 
 export interface Hobby {
   title: string,
@@ -13,10 +15,10 @@ export const programming: Hobby = {
 
 export const sports: Hobby = {
   title: "sports",
-  activities: []
+  activities: sportsCards
 }
 
 export const videogames: Hobby = {
   title: "videogames",
-  activities: []
+  activities: videogamesCards
 }
