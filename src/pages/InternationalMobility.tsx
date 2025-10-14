@@ -3,7 +3,7 @@ import { BaseTemplate } from "../components/common/BaseTemplate";
 export function InternationalMobilityBelow() {
   return (
     <div className="blog-block">
-      <h2 className="blog-title">Currently searching for opportunities</h2>
+      <h2 className="blog-first-title">Currently searching for opportunities</h2>
         <p className="blog-paragraph">As a future engineer with a global outlook, I am dedicating significant effort to research international mobility internship opportunities within the software engineering sector.</p>
         <p className="blog-paragraph">My goal is to build a career that allows me to contribute to diverse teams around the world, gain exposure to different engineering practices, and strengthen my communication and intercultural skills.</p>
         <p className="blog-paragraph">As I actively seek these engineering opportunities abroad, please feel free to contact me.</p>

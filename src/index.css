@@ -10,14 +10,6 @@
 @source inline("ease-in-out");
 @import "tailwindcss";
 
-.text-stroke-white {
-  text-shadow:
-     1px  1.5px 0 rgb(177, 202, 209),
-    -1px  1.5px 0 rgb(177, 202, 209),
-     1px -1.5px 0 rgb(177, 202, 209),
-    -1px -1.5px 0 rgb(177, 202, 209);
-}
-
 @theme {
    /* Primitive colors */
   --color-beige-100: rgb(249, 244, 235);
@@ -117,7 +109,10 @@
 
 @layer components {
   .blog-block {
-    @apply font-normal text-lg/7 p-8 -mt-12;
+    @apply font-normal text-lg/7 p-8 bg-background-neutral-secondary;
+  }
+  .blog-first-title {
+    @apply font-semibold text-xl mb-4;
   }
   .blog-title {
     @apply font-semibold text-xl mt-8 mb-4;

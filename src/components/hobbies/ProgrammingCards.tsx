@@ -17,6 +17,15 @@ function FirstCard() {
 function SecondCard() {
   return (
     <HobbyCard>
+      <div>
+      </div>
+    </HobbyCard>
+  )
+}
+
+function ThirdCard() {
+  return (
+    <HobbyCard>
       <div className="text-center flex flex-col">
         <p>Minecraft add-ons</p>
         <p className="mb-1">for fun.</p>
@@ -28,22 +37,10 @@ function SecondCard() {
   )
 }
 
-function ThirdCard() {
-  return (
-    <HobbyCard>
-      <div>
-      </div>
-    </HobbyCard>
-  )
-}
-
 function FourthCard() {
   return (
     <HobbyCard>
       <div>
-        <p>Something</p>
-        <p>missing ?</p>
-        <p>I code it.</p>
       </div>
     </HobbyCard>
   )
@@ -74,7 +71,10 @@ function SixthCard() {
 function SeventhCard() {
   return (
     <HobbyCard>
-      <div>
+      <div className="text-center flex flex-col">
+        <p className="mb-1">Quality of life</p>
+        <a href={`${github.url}/nomorediscordupdatedownload`} target="_blank" className="underline">updatediscord</a>
+        <a href={`${github.url}/nvim`} target="_blank" className="underline">nvimconfig</a>
       </div>
     </HobbyCard>
   )
@@ -93,6 +93,10 @@ function NinethCard() {
   return (
     <HobbyCard>
       <div>
+        <p>Always</p>
+        <p>learning</p>
+        <p>and</p>
+        <p>tweaking</p>
       </div>
     </HobbyCard>
   )

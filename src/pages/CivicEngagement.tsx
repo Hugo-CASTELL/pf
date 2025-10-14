@@ -3,7 +3,7 @@ import { BaseTemplate } from "../components/common/BaseTemplate";
 export function CivicEngagementBelow() {
   return (
     <div className="blog-block">
-      <h2 className="blog-title">A space for future civic engagement</h2>
+      <h2 className="blog-first-title">A space for future civic engagement</h2>
       <p className="blog-paragraph">
         This page will be dedicated to sharing upcoming participations and initiatives related to civic engagement and community involvement.
       </p>

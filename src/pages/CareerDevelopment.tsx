@@ -4,7 +4,7 @@ import { TitleHightlight } from "../components/common/TitleHighlight";
 export function CareerDevelopmentBelow() {
   return (
     <div className="blog-block">
-      <h2 className="blog-title">Professional experience</h2>
+      <h2 className="blog-first-title">Professional experience</h2>
 
       <p className="blog-paragraph">
         <div className="flex gap-2">

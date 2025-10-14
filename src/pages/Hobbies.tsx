@@ -7,13 +7,13 @@ import { useState } from "react";
 import { programming, sports, videogames, type Hobby } from "../utils/common/hobbies";
 
 interface SideProps {
-  hobby: Hobby | undefined,
-  setHobby: (h:Hobby | undefined) => void,
+  hobby: Hobby,
+  setHobby: (h:Hobby) => void,
 }
 
 function HobbiesSide({ hobby, setHobby }: SideProps) {
 
-  const changeHobby = (current: Hobby | undefined, next: boolean): Hobby | undefined => {
+  const changeHobby = (current: Hobby, next: boolean): Hobby | undefined => {
     const list = [programming, sports, videogames]
     const i = list.findIndex(h => h.title === current?.title);
     return list[
@@ -30,7 +30,7 @@ function HobbiesSide({ hobby, setHobby }: SideProps) {
       </button>
       <div className="h-[50vh] flex-1 grid grid-flow-col place-items-center grid-cols-3 grid-rows-3 gap-4">
         {new Array(9).fill(0).map((_, index) => {
-            const hobbyCard = hobby?.activities[index]
+            const hobbyCard = hobby.activities[index]
             return <div className={`w-full h-full overflow-hidden rounded-extra ${bgBrandRoundRobin(index)}`}>{hobbyCard ?? index+1}</div>
           }
 
@@ -44,15 +44,15 @@ function HobbiesSide({ hobby, setHobby }: SideProps) {
 }
 
 export function Hobbies() {
-  const [hobby, setHobby] = useState<Hobby | undefined>()
+  const [hobby, setHobby] = useState<Hobby>(programming)
 
   return (
     <BaseTemplate
       title={
         <span className="text-content-neutral-tertiary">
-          <TitleHightlight onClick={() => setHobby(programming)} selected={hobby?.title == programming.title}>{programming.title}</TitleHightlight> for fun,<br />
-          mainly <TitleHightlight onClick={() => setHobby(sports)} selected={hobby?.title == sports.title}>{sports.title}</TitleHightlight>,<br />
-          and also <TitleHightlight onClick={() => setHobby(videogames)} selected={hobby?.title == videogames.title}>{videogames.title}</TitleHightlight>.<br />
+          <TitleHightlight onClick={() => setHobby(programming)} selected={hobby.title == programming.title}>{programming.title}</TitleHightlight> for fun,<br />
+          mainly <TitleHightlight onClick={() => setHobby(sports)} selected={hobby.title == sports.title}>{sports.title}</TitleHightlight>,<br />
+          and also <TitleHightlight onClick={() => setHobby(videogames)} selected={hobby.title == videogames.title}>{videogames.title}</TitleHightlight>.<br />
         </span>
       }
       sideSection={<HobbiesSide hobby={hobby} setHobby={setHobby} />}
