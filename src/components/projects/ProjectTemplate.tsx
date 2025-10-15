@@ -1,9 +1,10 @@
 import { type TagProps } from "../common/Tag"
 import { BaseTemplate } from "../common/BaseTemplate"
+import type { KnownTag } from "../../utils/common/tags"
 
 interface ProjectTemplateProps {
   projectTitle: string,
-  projectTags: string[],
+  projectTags: KnownTag[],
   children?: React.ReactNode
 }
 
@@ -27,9 +28,8 @@ export function ProjectTemplate(props: ProjectTemplateProps) {
           </>
         }
       tagsProps={
-        Array.from(props.projectTags.slice(0, 3).map((label, index) => {
-          let color = 3-index as 3 | 2 | 1
-          let prop: TagProps = {label:label, bgType:color}
+        Array.from(props.projectTags.slice(0, 3).map((tag, index) => {
+          let prop: TagProps = {knownTag: tag, bgType:index == 0 ? 3 : index == 1 ? 1 : 0}
           return prop
         }).values())
       }

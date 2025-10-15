@@ -13,7 +13,7 @@ interface SideProps {
 
 function HobbiesSide({ hobby, setHobby }: SideProps) {
 
-  const changeHobby = (current: Hobby, next: boolean): Hobby | undefined => {
+  const changeHobby = (current: Hobby, next: boolean): Hobby => {
     const list = [programming, sports, videogames]
     const i = list.findIndex(h => h.title === current?.title);
     return list[

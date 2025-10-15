@@ -10,7 +10,6 @@ export interface TagProps {
 }
 
 export function Tag(props: TagProps){
-  console.log(props.darken)
   return (
     <button 
       className={`${props.action && 'cursor-pointer'} rounded-classic flex justify-center items-center gap-[7px] px-[5px] py-[3px] ${props.darken ? "bg-background-neutral-disabled" : bgBrandRoundRobin(props.bgType)}`}
