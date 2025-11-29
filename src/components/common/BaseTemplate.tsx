@@ -11,6 +11,7 @@ interface BaseTemplateProps {
   arrows?: boolean,
   sideSection?: ReactNode,
   belowSection?: ReactNode,
+  titleOpticalOffset?: boolean,
 }
 
 export function BaseTemplate(props: BaseTemplateProps) {
@@ -18,9 +19,10 @@ export function BaseTemplate(props: BaseTemplateProps) {
     <div className={`flex flex-col ${props.belowSection ? "gap-[18px]" : "flex-1"}`}>
 
       {/* Hero */}
-      <div className={`w-full ${props.sideSection ? props.belowSection ? "min-h-[600px]" : "h-full" : "pb-10"} bg-background-neutral-secondary flex flex-col gap-10 justify-between items-center pt-10`}>
+      <div className={`w-full ${props.sideSection ? props.belowSection ? "min-h-[600px] desktop:px-16" : "h-full desktop:px-desktop-padding" : "pb-10"} bg-background-neutral-secondary flex flex-col gap-10 justify-between items-center pt-10  desktop:flex-row desktop:gap-0 desktop:justify-around`}>
 
         {/* Title section */}
+        <div className={`desktop:relative ${props.belowSection ? "desktop:w-1/2" : "desktop:w-full"} desktop:grid desktop:place-items-center ${props.titleOpticalOffset ? "desktop-optical-offset" : ""}`}>
         <div className="flex flex-col gap-[10px] min-w-[360px]">
           <h1 className="text-2xl font-semibold whitespace-pre-line">
             {props.title}
@@ -43,10 +45,11 @@ export function BaseTemplate(props: BaseTemplateProps) {
             </div>
           }
         </div>
+        </div>
 
         {/* Side section */}
         {props.sideSection &&
-          <div className={`overflow-visible ${props.belowSection ? "max-w-full" : "h-full w-full"}`}>
+          <div className={`overflow-visible ${props.belowSection ? "max-w-full desktop:h-full" : "h-full w-full"}`}>
            {props.sideSection}
           </div>
         }

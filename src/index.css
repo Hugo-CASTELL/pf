@@ -11,6 +11,10 @@
 @import "tailwindcss";
 
 @theme {
+  --breakpoint-desktop: 80rem;
+  --spacing-desktop-padding: 16vh;
+  --spacing-desktop-blog-padding: 38vh;
+
    /* Primitive colors */
   --color-beige-100: rgb(249, 244, 235);
   --color-beige-200: rgb(244, 238, 231);
@@ -109,7 +113,7 @@
 
 @layer components {
   .blog-block {
-    @apply font-normal text-lg/7 p-8 bg-background-neutral-secondary;
+    @apply font-normal text-lg/7 p-8 bg-background-neutral-secondary desktop:px-desktop-blog-padding;
   }
   .blog-first-title {
     @apply font-semibold text-xl mb-4;
@@ -119,5 +123,8 @@
   }
   .blog-paragraph {
     @apply mb-3;
+  }
+  .desktop-optical-offset {
+    @apply desktop:-translate-y-[5vh];
   }
 }

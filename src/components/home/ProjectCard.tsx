@@ -23,7 +23,7 @@ export function ProjectCard(props: ProjectCardProps) {
     <img src={props.imgSrc} className="w-9/10 rounded-classic" />
     {props.tags && 
       <div className={`absolute right-1 bottom-1 ${transitionClassic} opacity-0 group-hover:opacity-100 flex gap-2`}>
-        {props.tags.map((knownTag, index) => <Tag key={knownTag.label} knownTag={knownTag} bgType={index} action={() => {}} />)}
+        {props.tags.map((knownTag, index) => <Tag key={knownTag.label} knownTag={knownTag} bgType={index} action={() => {}} asDiv={true} />)}
       </div>
 
     }

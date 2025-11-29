@@ -12,7 +12,26 @@ export function Header () {
 
   return (
     <header className={`w-full min-h-18 ${transitionFast} ${isMobileMenuOpened ? 'bg-background-neutral-primary' : 'bg-background-neutral-primary/50 backdrop-blur-3xl'} px-6`}>
-      <div className="w-full h-18 flex justify-between items-center">
+
+      {/* Desktop header */}
+      <div className="hidden desktop:flex w-full h-18 justify-center items-center gap-12">
+        {allRoutes.map((route, index) => {
+          if(!route.path.includes(":"))
+            return (
+              <Link 
+                to={route.path}
+                key={route.title}
+                className={`cursor-pointer font-semibold text-content-neutral-secondary hover:text-content-neutral-primary`}
+                style={{ animationDelay: `${25 * index}ms` }}
+              >
+                {route.title}
+              </Link>
+            )
+        })}
+      </div>
+
+      {/* Mobile header */}
+      <div className="flex desktop:hidden w-full h-18 justify-between items-center">
         <Link to={HomeRoute.path} className={`${transitionFast} ${isMobileMenuOpened ? 'text-transparent' : 'cursor-pointer text-content-neutral-secondary hover:text-content-neutral-primary' } uppercase tracking-spaced font-bold`}>
           Hugo Castell
         </Link>
@@ -24,7 +43,9 @@ export function Header () {
                                 <Bars2Icon className="size-icon-md" /> }
         </button>
       </div>
-      <nav className={`w-full text-2xl tracking-normal font-bold flex flex-col ${transitionFast} ${isMobileMenuOpened ? 'h-screen' : 'h-0'}`}>
+
+      {/* Mobile dropdown */}
+      <nav className={`w-full text-2xl tracking-normal font-bold flex flex-col ${transitionFast} ${isMobileMenuOpened ? 'h-screen' : 'h-0 hidden'}`}>
         {isMobileMenuOpened && allRoutes.map((route, index) => {
           if(!route.path.includes(":"))
             return (

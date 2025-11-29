@@ -6,8 +6,8 @@ import { allSocials } from "../utils/common/socials";
 
 export function ContactSide(){
   return (
-    <div className="grid place-items-center pb-8">
-      <div className="grid grid-cols-2 gap-4">
+    <div className="grid place-items-center pb-8 desktop:w-full desktop:h-full">
+      <div className="grid grid-cols-2 gap-4 desktop-optical-offset desktop:w-75/100">
         {allSocials.filter((social) => !social.url.includes("github")).map((social, index) => 
           <a 
             href={social.url}
@@ -34,6 +34,7 @@ export function Contact() {
         </div>
       }
       sideSection={<ContactSide />}
+      titleOpticalOffset={true}
     />
   )
 }

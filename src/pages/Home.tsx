@@ -12,10 +12,10 @@ function HomeSide() {
   const navigate = useNavigate()
 
   return (
-    <div className="flex items-end justify-center">
-      <PickUpCard classNameAddition={`hover:${borderByBrandBackground(bgBrandRoundRobin(0) as string)} ${bgBrandRoundRobin(0)} h-64 z-10 translate-x-20`} label="See my last project" onClick={() => navigate(ProjectRoute.path.replace(":slug", portfolio.slug))} />
-      <PickUpCard classNameAddition={`hover:${borderByBrandBackground(bgBrandRoundRobin(1) as string)} ${bgBrandRoundRobin(1)} h-48 z-20 `} label="It's one fun hobby" onClick={() => navigate(HobbiesRoute.path)} />
-      <PickUpCard classNameAddition={`hover:${borderByBrandBackground(bgBrandRoundRobin(3) as string)} ${bgBrandRoundRobin(3)} h-32 z-30 -translate-x-20`} label="And I love to learn" onClick={() => navigate(ProjectsRoute.path)} />
+    <div className="flex items-end justify-center desktop:h-full desktop:justify-end">
+      <PickUpCard classNameAddition={`hover:${borderByBrandBackground(bgBrandRoundRobin(0) as string)} ${bgBrandRoundRobin(0)} h-64 z-10 translate-x-20 desktop:h-9/10`} label="See my last project" onClick={() => navigate(ProjectRoute.path.replace(":slug", portfolio.slug))} />
+      <PickUpCard classNameAddition={`hover:${borderByBrandBackground(bgBrandRoundRobin(1) as string)} ${bgBrandRoundRobin(1)} h-48 z-20  desktop:h-65/100`} label="It's one fun hobby" onClick={() => navigate(HobbiesRoute.path)} />
+      <PickUpCard classNameAddition={`hover:${borderByBrandBackground(bgBrandRoundRobin(3) as string)} ${bgBrandRoundRobin(3)} h-32 z-30 -translate-x-20 desktop:h-4/10`} label="And I love to learn" onClick={() => navigate(ProjectsRoute.path)} />
     </div>
   )
 }
