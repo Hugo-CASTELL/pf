@@ -2,7 +2,7 @@ import { ChevronRightIcon, Bars2Icon, XMarkIcon } from "@heroicons/react/24/outl
 import { useState } from "react";
 import { allRoutes, HomeRoute } from "../../utils/routing/routes";
 import { Link } from "react-router";
-import { selectedSocials } from "../../utils/common/socials";
+import { resume, selectedSocials } from "../../utils/common/socials";
 import { IconLoader } from "../svg/Icons";
 import arrow_up from "../../assets/common/arrow-up.png"
 import { transitionFast } from "../../utils/common/brandUtils";
@@ -15,19 +15,51 @@ export function Header () {
 
       {/* Desktop header */}
       <div className="hidden desktop:flex w-full h-18 justify-center items-center gap-12">
+        <a 
+          href={resume.url}
+          target="_blank"
+          className={`absolute top-1/2 left-5 -translate-y-1/2 group cursor-pointer`}
+        >
+          <IconLoader iconAlt={resume.alt} iconClassName={`size-icon-md text-content-neutral-tertiary group-hover:text-content-neutral-primary ${transitionFast}`} />
+          <div className="absolute -translate-y-1/9 translate-x-1/2">
+            <img 
+              alt="arrow from icon to resume indication" 
+              src={arrow_up}
+              className="relative w-6 h-6 -rotate-70 scale-x-[-1] opacity-35"
+            />
+            <p className="absolute -bottom-0.5 left-7 w-50 font-caveat text-xl text-content-neutral-tertiary opacity-35">my resume</p>
+          </div>
+        </a>
         {allRoutes.map((route, index) => {
           if(!route.path.includes(":"))
             return (
               <Link 
                 to={route.path}
                 key={route.title}
-                className={`cursor-pointer font-semibold text-content-neutral-secondary hover:text-content-neutral-primary`}
+                className={`h-full flex items-center cursor-pointer font-semibold text-content-neutral-tertiary hover:text-content-neutral-primary ${transitionFast}`}
                 style={{ animationDelay: `${25 * index}ms` }}
               >
                 {route.title}
               </Link>
             )
         })}
+        <div className="absolute flex right-5">
+            {selectedSocials.filter((social) => social.alt !== resume.alt).map((social) => {
+              let style = `w-6 h-6 ${transitionFast} group-hover:opacity-100`
+              let heroIconClass = style + ` text-content-neutral-secondary group-hover:text-content-neutral-primary`
+              let customIconClass = style + ` fill-content-neutral-tertiary group-hover:fill-content-neutral-primary`
+              return (
+                <a 
+                  href={social.url}
+                  target="_blank"
+                  key={social.alt}
+                  className={`group cursor-pointer animate-fade-in-from-top pr-4 py-3`}
+                >
+                  <IconLoader iconAlt={social.alt} iconClassName={social.customIcon ? customIconClass : heroIconClass} />
+                </a>
+              )
+            })}
+        </div>
       </div>
 
       {/* Mobile header */}

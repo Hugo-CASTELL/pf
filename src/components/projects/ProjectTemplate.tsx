@@ -7,13 +7,6 @@ interface ProjectTemplateProps {
   projectTags: KnownTag[],
   children?: React.ReactNode
 }
-
-function ProjectSide() {
-  return (
-    <div />
-  )
-}
-
 export function ProjectTemplate(props: ProjectTemplateProps) {
   return (
     <BaseTemplate
@@ -34,7 +27,6 @@ export function ProjectTemplate(props: ProjectTemplateProps) {
         }).values())
       }
       arrows={true}
-      sideSection={<ProjectSide />}
       belowSection={props.children}
     />
   )

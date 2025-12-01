@@ -29,9 +29,11 @@ function HomeBelow() {
         <h1 className="w-full text-left text-lg font-semibold">
           Some selected projects
         </h1>
-        {selectedProjects.slice(0,4).map((project, index) =>
-          <ProjectCard key={project.title} bgType={index} action={() => {navigate(ProjectRoute.path.replace(":slug", project.slug))}} label={project.title} imgSrc={"https://picsum.photos/536/354"} />
-        )}
+        <div className="flex flex-col gap-[10px] desktop:grid desktop:grid-cols-2 desktop:gap-[20px] desktop:my-2">
+          {selectedProjects.slice(0,4).map((project, index) =>
+            <ProjectCard key={project.title} bgType={index} action={() => {navigate(ProjectRoute.path.replace(":slug", project.slug))}} label={project.title} imgSrc={project.thumbnail ?? "https://picsum.photos/536/354"} />
+          )}
+        </div>
         <div className="flex justify-end">
           <Button label="See all" action={() => navigate(ProjectsRoute.path)} />
         </div>

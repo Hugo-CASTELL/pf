@@ -54,14 +54,14 @@ function ProjectsSide() {
   }, [searchParams])
 
   return (
-    <div className="grid place-items-center">
+    <div className="grid place-items-center desktop:overflow-x-auto">
       <div className="flex flex-col gap-2 desktop:justify-center desktop:w-full desktop:h-full desktop:min-w-[900px]">
         <h3 className="font-semibold">Filters</h3>
         <div className="w-full flex gap-2 mb-4">
           {tags && tags.map((filterTag, index) => <Tag key={filterTag.knownTag.label} knownTag={filterTag.knownTag} bgType={index} darken={!filterTag.isActive} action={() => {switchTag(filterTag)}} />)}
         </div>
         <div className="grid gap-4 pb-4 desktop:grid-rows-3 desktop:grid-flow-col desktop:max-w-fit">
-          {projects && projects.map((project, index) => <ProjectCard key={project.title} bgType={index} action={() => {navigate(ProjectRoute.path.replace(":slug", project.slug))}} label={project.title} tags={project.tags} imgSrc={"https://picsum.photos/536/354"} />
+          {projects && projects.map((project, index) => <ProjectCard key={project.title} bgType={index} action={() => {navigate(ProjectRoute.path.replace(":slug", project.slug))}} label={project.title} tags={project.tags} imgSrc={project.thumbnail ?? "https://picsum.photos/536/354"} />
             )}
         </div>
       </div>

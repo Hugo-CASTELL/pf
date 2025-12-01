@@ -6,7 +6,7 @@ export function CareerDevelopmentBelow() {
     <div className="blog-block">
       <h2 className="blog-first-title">Professional experience</h2>
 
-      <p className="blog-paragraph">
+      <div className="blog-paragraph">
         <div className="flex gap-2">
           <div className="flex flex-col">
             <strong>2024–now</strong> 
@@ -17,11 +17,11 @@ export function CareerDevelopmentBelow() {
             <p>Equans</p>
           </div>
         </div>
-      </p>
+      </div>
 
       <h2 className="blog-title">Study journey</h2>
 
-      <p className="blog-paragraph">
+      <div className="blog-paragraph">
         <div className="flex gap-2">
           <div className="flex flex-col">
             <strong>2024–now</strong> 
@@ -32,7 +32,7 @@ export function CareerDevelopmentBelow() {
             <p>Academic computer science bachelor</p>
           </div>
         </div>
-      </p>
+      </div>
 
       <h2 className="blog-title">My main strength</h2>
 
@@ -40,11 +40,12 @@ export function CareerDevelopmentBelow() {
           I spent four out of five years of my computer engineering studies as an apprentice so far. My academic studies gave me a solid theoretical foundation, personal exploration with true curiosity deepened my understanding, and real-world experience in companies taught me about teamwork, deadlines, project management, compromises, and addressing user needs. This combination has helped me develop a well-rounded skill set and the ability to tackle complex problems effectively, always keeping in mind what truly matters: performance and the end user.
         </p>
 
-      <h2 className="blog-title">Career plan incoming</h2>
+      <h2 className="blog-title">My Career Evolution Plan</h2>
 
       <p className="blog-paragraph">
-        I'm currently working on a complete <em>Career Plan Poster</em>, 
-        illustrating my professional objectives and growth path after obtaining my Software and Network Engineering diploma from ENSEEIHT.
+        <a href="cep.pdf" target="_blank" className="cursor-pointer">
+          <img src="cep.jpg" />
+        </a>
       </p>
     </div>
   );

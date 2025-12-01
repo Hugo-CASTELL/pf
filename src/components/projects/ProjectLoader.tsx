@@ -12,7 +12,9 @@ export function ProjectLoader() {
         <ProjectTemplate 
           projectTitle={project.title}
           projectTags={project.tags}
-        />
+        >
+          {project.below}
+        </ProjectTemplate>
       )
     }
   }

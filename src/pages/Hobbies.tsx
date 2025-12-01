@@ -24,7 +24,7 @@ function HobbiesSide({ hobby, setHobby }: SideProps) {
   };
   
   return (
-    <div className="w-screen h-fit flex justify-between items-center pt-4 pb-18">
+    <div className="desktop-optical-offset w-screen desktop:w-full h-fit desktop:h-full flex justify-between items-center pt-4 pb-18">
       <button className="h-full grid place-items-center" onClick={() => setHobby(changeHobby(hobby, false))}>
         <ChevronLeftIcon className="size-icon-2xl" />
       </button>
@@ -49,13 +49,19 @@ export function Hobbies() {
   return (
     <BaseTemplate
       title={
+        <>
         <span className="text-content-neutral-tertiary">
           <TitleHightlight onClick={() => setHobby(programming)} selected={hobby.title == programming.title}>{programming.title}</TitleHightlight> for fun,<br />
           mainly <TitleHightlight onClick={() => setHobby(sports)} selected={hobby.title == sports.title}>{sports.title}</TitleHightlight>,<br />
           and also <TitleHightlight onClick={() => setHobby(videogames)} selected={hobby.title == videogames.title}>{videogames.title}</TitleHightlight>.<br />
         </span>
+        <span className="text-sm text-content-neutral-tertiary">
+          This page is under construction!
+        </span>
+        </>
       }
       sideSection={<HobbiesSide hobby={hobby} setHobby={setHobby} />}
+      titleOpticalOffset={true}
     />
   )
 }
